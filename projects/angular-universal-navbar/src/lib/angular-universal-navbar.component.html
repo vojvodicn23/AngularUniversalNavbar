@@ -1,0 +1,17 @@
+
+<div class="app-outlet">
+    
+    <div class="universal-navbar">
+        @for (item of routes; track item.name) {
+            <div
+                [routerLink]="item.route"
+                routerLinkActive="active"
+                class="universal-navbar-item"
+                >{{item.name}}
+            </div>
+        }
+    </div>
+
+    <ng-content></ng-content>
+</div>
+
