@@ -1,17 +1,29 @@
 
-<div class="app-outlet">
+<div class="app-outlet"
+[ngStyle]="{
+    'display': position === 'top' ? '' : 'flex',
+    'flex-direction': position === 'right' ? 'row-reverse' : '',
+}"
+>
     
-    <div class="universal-navbar">
+    <div class="universal-navbar"
+    [ngStyle]="{
+        'flex-direction': position === 'top' ? 'row' : 'column',
+
+    }"
+    >
         @for (item of routes; track item.name) {
-            <div
-                [routerLink]="item.route"
-                routerLinkActive="active"
-                class="universal-navbar-item"
-                >{{item.name}}
-            </div>
+            <nav-item 
+                [item]="item"
+            />
         }
+        <nav-item 
+                [item]="routes[1]"
+                [showIcon]="true"
+            />
     </div>
 
     <ng-content></ng-content>
+    
 </div>
 

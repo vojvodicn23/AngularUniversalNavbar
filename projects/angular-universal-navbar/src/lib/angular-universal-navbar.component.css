@@ -1,8 +1,4 @@
-.app-outlet{
-    /* display: flex;
-    flex-direction:row-reverse; */
 
-}
 
 
 
@@ -13,21 +9,8 @@
     align-items: center;
     justify-content: center;
     gap: 16px;
+    padding: 12px;
 }
 
-.universal-navbar-item{
-    cursor: pointer;
-    padding: 8px 12px;
-    border-bottom: transparent 2px solid;
 
-}
 
-.universal-navbar-item:hover{
-    border-bottom: blue 2px solid;
-
-}
-
-.universal-navbar .active{
-    color: brown;
-    background-color: aqua;
-}

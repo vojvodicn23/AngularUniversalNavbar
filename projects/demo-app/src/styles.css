@@ -1,4 +1,9 @@
+body{
+    margin: 0px;
+}
+
+
 .universal-navbar .active{
-    color: yellow !important;
-    background-color: gray  !important;
+    color: black !important;
+    background-color: rgb(234, 233, 233)  !important;
 }

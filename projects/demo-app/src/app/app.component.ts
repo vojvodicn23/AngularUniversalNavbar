@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { AngularUniversalNavbarComponent } from 'angular-universal-navbar';
+import { AngularUniversalNavbarComponent, NavItems, UniversalNavbarConfig } from 'angular-universal-navbar';
 
 @Component({
   selector: 'app-root',
@@ -11,14 +11,25 @@ import { AngularUniversalNavbarComponent } from 'angular-universal-navbar';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  routes = [
+  
+  routes: NavItems[] = [
     {
       name: 'First',
       route: 'first'
     },
     {
       name: 'Second',
-      route: 'second'
+      //route: 'second',   // use route or children
+      children: [
+        {
+          name: 'Second First',
+          route: 'second-first'
+        },
+        {
+          name: 'Second Second',
+          route: 'second-second'
+        },
+      ],
     },
     {
       name: 'Third',
@@ -29,5 +40,11 @@ export class AppComponent {
       route: 'fourth'
     },
 
-  ]
+  ];
+
+  position: 'left' | 'right' | 'top' = 'top';
+
+  config = new UniversalNavbarConfig({
+    position: 'top',
+  });
 }
