@@ -1,6 +1,7 @@
 # Angular Universal Navbar
 
 Suported Angular versions: 17.
+
 ![example](image.png)
 
 [Click here to try it on StackBlitz](https://stackblitz.com/edit/stackblitz-starters-f3b24p)
@@ -154,7 +155,7 @@ There are three possible options:
       }
     },
 ```
-You are able to pass date to custom component, shown above which is equivalent to this: 
+You are able to pass data to custom component, shown above which is equivalent to this: 
 ```html
 
 <app-user
