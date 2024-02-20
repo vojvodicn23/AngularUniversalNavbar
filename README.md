@@ -3,6 +3,8 @@
 Suported Angular versions: 17.
 ![example](image.png)
 
+[Click here to try it on StackBlitz](https://stackblitz.com/edit/stackblitz-starters-f3b24p)
+
 
 ## Usage
 Add the package as a dependency to your project using:
