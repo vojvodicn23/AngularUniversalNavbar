@@ -1,4 +1,11 @@
-.universal-navbar-dropdown-content{
+.settings{
+    padding: 4px;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+
+.settings-content{
     display: none;
     background-color: white;
     position: absolute;
@@ -8,7 +15,7 @@
     padding: 4px 0px;
 }
 
-.universal-navbar-option{
+.settings-option{
     padding: 5px 10px;
     margin-inline: 2px;
     height: 34px;
@@ -16,8 +23,4 @@
     align-items: center;
     cursor: pointer;
     border-left: transparent 2px solid;
-}
-
-.universal-navbar-option:hover{
-    border-left: blue 2px solid;
 }

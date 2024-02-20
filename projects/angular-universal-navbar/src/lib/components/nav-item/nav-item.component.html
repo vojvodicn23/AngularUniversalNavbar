@@ -3,7 +3,7 @@
     routerLinkActive="active"
     class="universal-navbar-item"
     [style.padding-right]="showIcon ? '0px' : '12px'"
-    >{{item?.name}}
+    >{{item ? item.name : name}}
     <icon *ngIf="showIcon"
         [icon]="isOpen ? 'expand-less' : 'expand-more'" 
     />

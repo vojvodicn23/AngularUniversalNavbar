@@ -1,19 +1,20 @@
-export class UniversalNavbarConfig {
+/* export class UniversalNavbarConfig {
     position: 'left' | 'right' | 'top';
 
     constructor(config: Partial<UniversalNavbarConfig> = {}) {
         this.position = config.position ?? 'top';
        
     }
-}
+} */
 
-export interface NavItems {
-    name: string;
-    route?: string;
-    children?: NavItem[]; 
-}
+import { Type } from "@angular/core";
 
 export interface NavItem {
-    name: string;
-    route: string;
+    name?: string;
+    route?: string;
+    children?: NavItem[]; 
+    component?: Type<any>;
+    componentData?: any;
+    styles?: {[key: string]: string};
+    classes?: string[];
 }

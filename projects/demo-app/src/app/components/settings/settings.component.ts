@@ -1,26 +1,21 @@
-import { Component, ElementRef, HostListener, Input, inject } from '@angular/core';
-import { NavItemComponent } from '../nav-item/nav-item.component';
-import { NavItem } from '../../universal-navbar-config';
-import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { Component, ElementRef, HostListener, inject } from '@angular/core';
 
 @Component({
-  selector: 'dropdown',
+  selector: 'app-settings',
   standalone: true,
-  imports: [NavItemComponent,RouterOutlet, RouterLink, RouterLinkActive],
-  templateUrl: './dropdown.component.html',
-  styleUrl: './dropdown.component.css'
+  imports: [CommonModule],
+  templateUrl: './settings.component.html',
+  styleUrl: './settings.component.css'
 })
-export class DropdownComponent {
-
-  @Input() items: NavItem[] = [];
-  @Input() name = '';
+export class SettingsComponent {
 
   isOpen = false;
   el = inject(ElementRef);
 
   @HostListener('document:click', ['$event']) onHostClick(event: MouseEvent) {
     if(this.isOpen) {
-      const dropdown = this.el.nativeElement.querySelector('.universal-navbar-dropdown-content');
+      const dropdown = this.el.nativeElement.querySelector('.settings-content');
       dropdown.style.display = 'none';
       this.isOpen = false;
     }
@@ -34,23 +29,21 @@ export class DropdownComponent {
       const buttonX = rect.left + window.scrollX;
       const buttonY = rect.top + window.scrollY;
 
-      const dropdown = this.el.nativeElement.querySelector('.universal-navbar-dropdown-content');
+      const dropdown = this.el.nativeElement.querySelector('.settings-content');
       dropdown.style.display = 'block';
       this.isOpen = true;
       const dropdownWidth = dropdown.offsetWidth;
       const rightWidth = window.innerWidth - buttonX;
 
-      dropdown.style.top = `${buttonY + 30 + 5}px`;
+      dropdown.style.top = `${buttonY + 30 + 15}px`;
 
       if(rightWidth > dropdownWidth){
         dropdown.style.left = `${buttonX}px`;
       }
       else{
-        dropdown.style.left = `${buttonX - (dropdownWidth - rightWidth)}px`;
+        dropdown.style.left = `${buttonX - (dropdownWidth - rightWidth) - 5}px`;
       }
       //console.log(buttonX, buttonY)
     }
   }
-
-
 }

@@ -1,0 +1,20 @@
+p{
+    margin: 0;
+    padding: 10px 20px;
+    background: linear-gradient(45deg, #007BFF, #881798); 
+    font-family: 'Arial', sans-serif; 
+    font-size: 24px; 
+    color: white; 
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    border-radius: 5px; 
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    transform: skew(-10deg); 
+    transition: all 0.3s ease;
+    width: fit-content;
+    cursor: pointer;
+}
+
+p:hover {
+    transform: skew(-10deg) scale(1.05); 
+    box-shadow: 0 6px 12px rgba(0,0,0,0.25); 
+  }

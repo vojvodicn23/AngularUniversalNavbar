@@ -1,7 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { AngularUniversalNavbarComponent, NavItems, UniversalNavbarConfig } from 'angular-universal-navbar';
+import { AngularUniversalNavbarComponent, NavItem } from 'angular-universal-navbar';
+import { LogoComponent } from './components/logo/logo.component';
+import { UserComponent } from './components/user/user.component';
+import { SettingsComponent } from './components/settings/settings.component';
 
 @Component({
   selector: 'app-root',
@@ -12,14 +15,23 @@ import { AngularUniversalNavbarComponent, NavItems, UniversalNavbarConfig } from
 })
 export class AppComponent {
   
-  routes: NavItems[] = [
+  items: NavItem[] = [
+    {
+      component: LogoComponent,
+      styles: {
+        marginLeft: '20px'
+      },
+      
+    },
     {
       name: 'First',
-      route: 'first'
+      route: 'first',
+      styles: {
+        marginLeft: 'auto'
+      },
     },
     {
       name: 'Second',
-      //route: 'second',   // use route or children
       children: [
         {
           name: 'Second First',
@@ -39,12 +51,26 @@ export class AppComponent {
       name: 'Fourth',
       route: 'fourth'
     },
+    {
+      name: 'Fifth',
+      styles: {
+        marginRight: 'auto'
+      },
+      classes: [
+        'your-custom-class'
+      ],
+    },
+    {
+      component: SettingsComponent,
+    },
+    {
+      component: UserComponent,
+      componentData: {
+        user: 'NV'
+      }
+    },
 
   ];
 
-  position: 'left' | 'right' | 'top' = 'top';
 
-  config = new UniversalNavbarConfig({
-    position: 'top',
-  });
 }

@@ -7,7 +7,7 @@ import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
 @Component({
   selector: 'nav-item',
   standalone: true,
-  imports: [CommonModule, IconComponent,RouterOutlet, RouterLink, RouterLinkActive],
+  imports: [CommonModule, IconComponent, RouterOutlet, RouterLink, RouterLinkActive],
   templateUrl: './nav-item.component.html',
   styleUrl: './nav-item.component.css'
 })
@@ -17,4 +17,5 @@ export class NavItemComponent {
   @Input() showIcon = false;
   @Input() isOpen = false;
   @Input() isSelected = false;
+  @Input() name = '';
 }

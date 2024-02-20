@@ -1,6 +1,20 @@
 {
   "name": "angular-universal-navbar",
   "version": "0.0.1",
+
+  
+  "description": "This is universal navbar component for Angular",
+  "keywords": ["navbar", "sidebar", "universal", "navigation", "menu", "routing"],
+  "author": {
+    "name": "Nikola Vojvodic",
+    "url": "https://github.com/vojvodicn23"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vojvodicn23/angular-universal-navbar"
+  },
+
   "peerDependencies": {
     "@angular/common": "^17.2.0",
     "@angular/core": "^17.2.0"

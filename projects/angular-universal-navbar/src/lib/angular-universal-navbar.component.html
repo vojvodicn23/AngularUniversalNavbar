@@ -11,16 +11,17 @@
         'flex-direction': position === 'top' ? 'row' : 'column',
 
     }"
-    >
-        @for (item of routes; track item.name) {
-            <nav-item 
-                [item]="item"
-            />
-        }
-        <nav-item 
-                [item]="routes[1]"
-                [showIcon]="true"
-            />
+    >   
+        <ng-template #container></ng-template>
+
+        <!-- @for (item of routes; track item.name) {
+            @if (item.route) {
+                <nav-item [item]="item" />
+            }
+            @else if(item.children && item.children.length > 0) {
+                <dropdown [name]="item.name" [items]="item.children"/>
+            }
+        } -->
     </div>
 
     <ng-content></ng-content>

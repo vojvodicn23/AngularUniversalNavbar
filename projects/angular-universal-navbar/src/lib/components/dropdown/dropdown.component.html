@@ -1,1 +1,22 @@
-<p>dropdown works!</p>
+
+<div class="universal-navbar-dropdown">
+
+    <nav-item 
+        [name]="name"
+        [showIcon]="true"
+        [isOpen]="isOpen"
+    />
+    
+
+    <div class="universal-navbar-dropdown-content">
+        @for (item of items; track item.name) {
+            <div class="universal-navbar-option"
+            [routerLink]="item?.route"
+            routerLinkActive="active"
+            >
+                {{item.name}}
+            </div>
+        }
+    </div>
+
+</div>
