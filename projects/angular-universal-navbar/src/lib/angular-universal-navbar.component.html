@@ -1,30 +1,20 @@
 
-<div class="app-outlet"
-[ngStyle]="{
-    'display': position === 'top' ? '' : 'flex',
-    'flex-direction': position === 'right' ? 'row-reverse' : '',
-}"
->
-    
-    <div class="universal-navbar"
-    [ngStyle]="{
-        'flex-direction': position === 'top' ? 'row' : 'column',
+<div class="app-outlet">
 
-    }"
-    >   
-        <ng-template #container></ng-template>
-
-        <!-- @for (item of routes; track item.name) {
-            @if (item.route) {
-                <nav-item [item]="item" />
-            }
-            @else if(item.children && item.children.length > 0) {
-                <dropdown [name]="item.name" [items]="item.children"/>
-            }
-        } -->
+    <div class="universal-navbar">   
+        <ng-template #navbar></ng-template>
     </div>
 
-    <ng-content></ng-content>
+    <div class="universal-content">
+        
+        <div class="universal-sidebar">
+            <ng-template #sidebar></ng-template>
+        </div>
+
+        <ng-content></ng-content>
+
+    </div>
+    
     
 </div>
 

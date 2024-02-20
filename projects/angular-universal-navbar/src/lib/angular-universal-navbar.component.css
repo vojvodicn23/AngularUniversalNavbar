@@ -7,5 +7,14 @@
     padding: 12px;
 }
 
+.universal-content{
+    display: flex;
+}
 
+.universal-sidebar{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 12px;
+}
 

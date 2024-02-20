@@ -12,27 +12,41 @@ import { NavItem } from './universal-navbar-config';
   templateUrl: './angular-universal-navbar.component.html',
   styleUrl: './angular-universal-navbar.component.css'
 })
-export class AngularUniversalNavbarComponent implements OnInit, AfterViewInit{
+export class AngularUniversalNavbarComponent implements AfterViewInit{
 
+  private _navItems: NavItem[] = [];
+  private _sideItems: NavItem[] = [];
 
-
-  @Input() items:NavItem[] = [];
-  /* @Input() position: 'left' | 'right' | 'top' = 'top'; */
-  position = 'top';
-
-  @ViewChild('container', { read: ViewContainerRef }) container!: ViewContainerRef;
-  renderer2 = inject(Renderer2);
-
-  ngOnInit(): void {
-   
+  @Input() set navItems(items: NavItem[]){
+    this._navItems = items;
+    if(this.navbar){
+      this.setNavbar();
+    }
   }
 
+  @Input() set sideItems(items: NavItem[]){
+    this._sideItems = items;
+    if(this.sidebar){
+      this.setSidebar();
+    }
+  }
+
+  @ViewChild('navbar', { read: ViewContainerRef }) navbar!: ViewContainerRef;
+  @ViewChild('sidebar', { read: ViewContainerRef }) sidebar!: ViewContainerRef;
+  renderer2 = inject(Renderer2);
+
+
   ngAfterViewInit(): void {
-    this.container.clear();
-    this.items.forEach(item => {
+    this.setNavbar();
+    this.setSidebar();
+  }
+
+  setNavbar(){
+    this.navbar.clear();
+    this._navItems.forEach(item => {
       let componentRef: any;
       if(item.component){
-        componentRef = this.container.createComponent(item.component);
+        componentRef = this.navbar.createComponent(item.component);
         if(item.componentData){
           Object.keys(item.componentData).forEach(key => {
             componentRef.instance[key] = item.componentData[key];
@@ -40,12 +54,48 @@ export class AngularUniversalNavbarComponent implements OnInit, AfterViewInit{
         }
       }
       else if(item.children && item.name && item.children.length > 0){
-        componentRef = this.container.createComponent(DropdownComponent);
+        componentRef = this.navbar.createComponent(DropdownComponent);
         componentRef.instance.name = item.name;
         componentRef.instance.items = item.children;
       }
       else if(item.name) {
-        componentRef = this.container.createComponent(NavItemComponent);
+        componentRef = this.navbar.createComponent(NavItemComponent);
+        componentRef.instance.item = item;
+      }
+
+      if (item.classes) {
+        item.classes.forEach(className => this.renderer2.addClass(componentRef.location.nativeElement, className));
+      }
+
+      if (item.styles) {
+        Object.keys(item.styles).forEach(styleName => {
+          if(item.styles){
+            this.renderer2.setStyle(componentRef.location.nativeElement, styleName, item.styles[styleName]);
+          }
+        });
+      }
+    });
+  }
+
+  setSidebar(){
+    this.sidebar.clear();
+    this._sideItems.forEach(item => {
+      let componentRef: any;
+      if(item.component){
+        componentRef = this.sidebar.createComponent(item.component);
+        if(item.componentData){
+          Object.keys(item.componentData).forEach(key => {
+            componentRef.instance[key] = item.componentData[key];
+          });
+        }
+      }
+      else if(item.children && item.name && item.children.length > 0){
+        componentRef = this.sidebar.createComponent(DropdownComponent);
+        componentRef.instance.name = item.name;
+        componentRef.instance.items = item.children;
+      }
+      else if(item.name) {
+        componentRef = this.sidebar.createComponent(NavItemComponent);
         componentRef.instance.item = item;
       }
 

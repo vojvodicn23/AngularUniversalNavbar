@@ -1,8 +1,14 @@
+:host {
+    display: block;
+    width: 100%;
+}
+
 p{
     margin: 0px;
     font-size: xx-large;
     padding-left: 50px;
     padding-top: 50px;
+    padding-bottom: 400px;
 }
 
 div{
