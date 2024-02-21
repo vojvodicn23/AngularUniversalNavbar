@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, HostBinding, Input } from '@angular/core';
 
 @Component({
   selector: 'icon',
@@ -15,4 +15,12 @@ export class IconComponent {
   @Input() icon = '';
   @Input() width = 20; 
   @Input() height = 20; 
+
+  @HostBinding('style.width') get styleWidth(): string {
+    return this.width + 'px';
+  }
+
+  @HostBinding('style.height') get styleHeight(): string {
+    return this.height + 'px';
+  }
 }

@@ -1,11 +1,9 @@
 
 <div class="universal-navbar-dropdown">
 
-    <nav-item 
-        [name]="name"
-        [showIcon]="true"
-        [isOpen]="isOpen"
-    />
+    <div class="universal-navbar-item">
+        {{name}} <icon  [icon]="isOpen ? 'expand-less' : 'expand-more'" />
+    </div>
     
 
     <div class="universal-navbar-dropdown-content">

@@ -14,8 +14,8 @@ import { NavItem } from './universal-navbar-config';
 })
 export class AngularUniversalNavbarComponent implements AfterViewInit{
 
-  private _navItems: NavItem[] = [];
-  private _sideItems: NavItem[] = [];
+  _navItems: NavItem[] = [];
+  _sideItems: NavItem[] = [];
 
   @Input() set navItems(items: NavItem[]){
     this._navItems = items;
@@ -42,6 +42,8 @@ export class AngularUniversalNavbarComponent implements AfterViewInit{
   }
 
   setNavbar(){
+    if(!this.navbar) return;
+
     this.navbar.clear();
     this._navItems.forEach(item => {
       let componentRef: any;
@@ -74,10 +76,13 @@ export class AngularUniversalNavbarComponent implements AfterViewInit{
           }
         });
       }
+      componentRef.changeDetectorRef.detectChanges();
     });
   }
 
   setSidebar(){
+    if(!this.sidebar) return;
+
     this.sidebar.clear();
     this._sideItems.forEach(item => {
       let componentRef: any;
@@ -110,6 +115,7 @@ export class AngularUniversalNavbarComponent implements AfterViewInit{
           }
         });
       }
+      componentRef.changeDetectorRef.detectChanges();
     });
   }
 }

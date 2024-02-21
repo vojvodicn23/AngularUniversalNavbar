@@ -1,17 +1,19 @@
-.universal-navbar-item{
+.universal-item{
     cursor: pointer;
     padding: 8px 12px;
     border-bottom: transparent 2px solid;
     border-radius: 2px;
     transition: 0.5s;
+    align-items: center;
     display: inline-flex;
+    text-wrap: nowrap;
 }
 
-.universal-navbar-item:hover{
+.universal-item:hover{
     border-bottom: blue 2px solid;
 }
 
-.universal-navbar .active{
+.universal-navbar .active, .universal-sidebar .active{
     color: brown;
     background-color: aqua;
 }

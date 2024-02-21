@@ -1,6 +1,11 @@
+
+:host {
+  display: inline-block; /* Ensures the host behaves like an inline element, with width and height */
+}
+
 svg {
     display: block; 
     max-width: 100%; 
     height: auto;
     transition: 0.5s;
-  }
+}

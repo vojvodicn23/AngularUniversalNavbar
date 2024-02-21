@@ -18,13 +18,6 @@ export class AppComponent implements OnInit {
   
   navItems: NavItem[] = [
     {
-      component: LogoComponent,
-      styles: {
-        marginLeft: '20px'
-      },
-      
-    },
-    {
       name: 'First',
       route: 'first',
       styles: {
@@ -74,35 +67,33 @@ export class AppComponent implements OnInit {
   ];
   sideItems: NavItem[] = [
     {
-      name: 'First',
+      component: LogoComponent,
+      styles: {
+        marginTop: '5px',
+        marginBottom: '50px'
+      },
+    },
+    {
+      name: 'Sidebar first',
       route: 'first',
     },
     {
-      name: 'Third',
+      name: 'Sidebar third',
       route: 'third'
     },
     {
-      name: 'Fourth',
+      name: 'Sidebar fourth',
       route: 'fourth'
     },
     {
-      name: 'Fifth',
+      name: 'Sidebar fifth',
     },
-
-
   ];
 
   //change navbar options at some point of time usefull when changeing screen size
   ngOnInit() { 
     setTimeout(() => {
       this.navItems = [
-        {
-          component: LogoComponent,
-          styles: {
-            marginLeft: '20px'
-          },
-          
-        },
         {
           name: 'First',
           route: 'first',

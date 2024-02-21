@@ -1,14 +1,15 @@
 
 <div class="app-outlet">
 
-    <div class="universal-navbar">   
-        <ng-template #navbar></ng-template>
+    <div class="universal-sidebar" *ngIf="_sideItems.length > 0">
+        <ng-template #sidebar></ng-template>
     </div>
+    
 
     <div class="universal-content">
         
-        <div class="universal-sidebar">
-            <ng-template #sidebar></ng-template>
+        <div class="universal-navbar" *ngIf="_navItems.length > 0">   
+            <ng-template #navbar></ng-template>
         </div>
 
         <ng-content></ng-content>

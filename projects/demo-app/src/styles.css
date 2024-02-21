@@ -3,7 +3,7 @@ body{
 }
 
 
-.universal-navbar .active{
+.universal-navbar .active, .universal-sidebar .active{
     color: black !important;
     background-color: rgb(234, 233, 233)  !important;
 }

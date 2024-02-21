@@ -2,7 +2,7 @@
 
 Suported Angular versions: 17.
 
-![example](image.png)
+![example](example.png)
 
 [Click here to try it on StackBlitz](https://stackblitz.com/edit/stackblitz-starters-f3b24p)
 
@@ -28,64 +28,49 @@ import { AngularUniversalNavbarComponent, NavItem } from 'angular-universal-navb
 })
 ```
 
-Define navbar items in the component:
+Define navbar items in the component(OPTIONAL) If you do not define the navbar items the navbar will not be shown:
 
 ```typescript
 
-items: NavItem[] = [
-    {
-      component: LogoComponent,
-      styles: {
-        marginLeft: '20px'
+navItems = [
+  {
+    name: 'First',
+    route: 'first',
+    styles: {
+      marginLeft: 'auto'
+    },
+  },
+  {
+    name: 'Second',
+    children: [
+      {
+        name: 'Second First',
+        route: 'second-first'
       },
-      
-    },
-    {
-      name: 'First',
-      route: 'first',
-      styles: {
-        marginLeft: 'auto'
+      {
+        name: 'Second Second',
+        route: 'second-second'
       },
+    ],
+  },
+  {
+    name: 'Fifth',
+    styles: {
+      marginRight: 'auto'
     },
-    {
-      name: 'Second',
-      children: [
-        {
-          name: 'Second First',
-          route: 'second-first'
-        },
-        {
-          name: 'Second Second',
-          route: 'second-second'
-        },
-      ],
-    },
-    {
-      name: 'Third',
-      route: 'third'
-    },
-    {
-      name: 'Fourth',
-      route: 'fourth'
-    },
-    {
-      name: 'Fifth',
-      styles: {
-        marginRight: 'auto'
-      },
-      classes: [
-        'your-custom-class'
-      ],
-    },
-    {
-      component: SettingsComponent,
-    },
-    {
-      component: UserComponent,
-      componentData: {
-        user: 'NV'
-      }
-    },
+    classes: [
+      'your-custom-class'
+    ],
+  },
+  {
+    component: SettingsComponent,
+  },
+  {
+    component: UserComponent,
+    componentData: {
+      user: 'NV'
+    }
+  },
 ];
 
 ```
@@ -96,7 +81,50 @@ Also, inside selector add router-outlet or any app content you wish.
 ```html
 
 <angular-universal-navbar
-    [items]="items"
+    [navItems]="navItems"
+>
+    <router-outlet></router-outlet>
+</angular-universal-navbar>
+
+```
+Define sidebar items in the component(OPTIONAL) If you do not define the sidebar items the sidebar will not be shown:
+
+```typescript
+
+sideItems: NavItem[] = [
+  {
+    component: LogoComponent,
+    styles: {
+      marginTop: '5px',
+      marginBottom: '50px'
+    },
+  },
+  {
+    name: 'Sidebar first',
+    route: 'first',
+  },
+  {
+    name: 'Sidebar third',
+    route: 'third'
+  },
+  {
+    name: 'Sidebar fourth',
+    route: 'fourth'
+  },
+  {
+    name: 'Sidebar fifth',
+  },
+];
+
+```
+
+In the component template add selector and pass the sidebar items.
+Also, inside selector add router-outlet or any app content you wish.
+
+```html
+
+<angular-universal-navbar
+    [sideItems]="sideItems"
 >
     <router-outlet></router-outlet>
 </angular-universal-navbar>
@@ -175,4 +203,17 @@ For all options, you are able to pass custom classes and styles:
         'your-custom-class'
       ],
     },
+```
+
+You can change styles directly in your global styles file (styles.css or styles.scss).
+
+```css
+.universal-navbar .active, .universal-sidebar .active{
+    color: black !important;
+    background-color: rgb(234, 233, 233)  !important;
+}
+
+.your-custom-class{
+    background-color: burlywood;
+}
 ```

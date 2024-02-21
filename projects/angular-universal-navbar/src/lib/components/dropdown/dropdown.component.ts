@@ -1,12 +1,12 @@
 import { Component, ElementRef, HostListener, Input, inject } from '@angular/core';
-import { NavItemComponent } from '../nav-item/nav-item.component';
 import { NavItem } from '../../universal-navbar-config';
 import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
+import { IconComponent } from '../icon/icon.component';
 
 @Component({
   selector: 'dropdown',
   standalone: true,
-  imports: [NavItemComponent,RouterOutlet, RouterLink, RouterLinkActive],
+  imports: [IconComponent,RouterOutlet, RouterLink, RouterLinkActive],
   templateUrl: './dropdown.component.html',
   styleUrl: './dropdown.component.css'
 })

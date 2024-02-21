@@ -21,3 +21,13 @@
 .universal-navbar-option:hover{
     border-left: blue 2px solid;
 }
+
+.universal-navbar-item{
+    cursor: pointer;
+    padding: 8px 0px 8px 12px;
+    border-bottom: transparent 2px solid;
+    border-radius: 2px;
+    transition: 0.5s;
+    align-items: center;
+    display: inline-flex;
+}
